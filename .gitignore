@@ -1,0 +1,49 @@
+# 빌드
+node_modules/
+target/
+build/
+out/
+dist/
+bin/
+.gradle/
+
+# IDE 및 개발 환경
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.classpath
+.project
+.settings/
+*.tsbuildinfo
+
+# 환경 변수
+.env
+.env.local
+.env.*.local
+**/application-local.yml
+**/application-local.properties
+**/application-dev.yml
+**/application-dev.properties
+
+# OS 및 시스템 로그
+[Dd]esktop.ini
+Thumbs.db
+$RECYCLE.BIN/
+*.log
+*.stackdump
+.DS_Store
+
+# 기타 파일
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+.mtj.tmp/

@@ -1,0 +1,2 @@
+server:
+    port: 8081 # Linux 서버에서 8080 사용중
