@@ -9,3 +9,5 @@ Spring - https://docs.spring.io/spring-boot/index.html
 Vite - https://vite.dev/guide/
 
 CORS - https://developer.mozilla.org/ko/docs/Web/HTTP/Guides/CORS
+
+maven - https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
