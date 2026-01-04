@@ -11,3 +11,6 @@
 두번 감추는 것이 아니라 application-local dev prd 를 써써 구분 짓는 방법과
 application 에 정의하지만 .env 로 불러오는 방법 혹은 더 다양한 방법을 생각해보자
 
+## 데이터 베이스 모델링
+
+## 데이터베이스 ERD
