@@ -11,3 +11,7 @@ Vite - https://vite.dev/guide/
 CORS - https://developer.mozilla.org/ko/docs/Web/HTTP/Guides/CORS
 
 maven - https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
+
+GitHub Action - https://docs.github.com/en/actions
+
+CI/CD - https://www.redhat.com/ko/topics/devops/what-is-ci-cd
