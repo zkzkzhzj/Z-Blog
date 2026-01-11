@@ -66,9 +66,10 @@ POST Table
 5. VIEWER_COUNT(NOTNULL) -> INT -> 조회수
 6. SORT_KEY(NOTNULL) -> INT -> 게시글 순서 정렬 키 값
 7. IS_HIDDEN -> TINYINT(1) -> 게시글 숨김 여부
-8. CREATE_DATE -> TIMESTAMP -> 작성일자
-9. UPDATE_DATE -> TIMESTAMP -> 수정일자
-10. DELETE_DATE -> TIMESTAMP -> 삭제일자
+8. CATEGORY_ID(FK) -> BIGINT -> 포스트가 위치 할 카테고리 ID
+9. CREATE_DATE -> TIMESTAMP -> 작성일자
+10. UPDATE_DATE -> TIMESTAMP -> 수정일자 
+11. DELETE_DATE -> TIMESTAMP -> 삭제일자
 
 COMMENT TABLE
 1. ID(PK) -> BIGINT -> 댓글 ID
@@ -99,17 +100,13 @@ POST_TAG TABLE
 2. POST_ID(FK) -> BIGINT -> 포스트 ID
 3. TAG_IG(FK) -> BIGINT -> 태그 ID
 
-CATEGORY TABLE
+CATEGORY TABLE -> Closer Table 삭제(너무 과하다고 판단)
 1. ID(PK) -> BIGINT -> 카테고리 ID
 2. TITLE(NOTNULL) -> VARCHAR(255) -> 카테고리 제목
-3. CREATE_DATE -> TIMESTAMP -> 작성일자
-4. UPDATE_DATE -> TIMESTAMP -> 수정일자
-5. DELETE_DATE -> TIMESTAMP -> 삭제일자
-
-CATEGORY_CLOSER TABLE
-1. ID(PK) -> BIGINT -> PARENT_ID + CHILD_ID 복합 키
-2. PARENT_ID(FK) -> BIGINT -> 부모 카테고리 ID
-3. CHILD_ID(FK) -> BIGINT -> 자식 카테고리 ID
-4. DEPTH -> INT -> 깊이
+3. PARENT_ID -> BIGINT -> 카테고리 부모 ID(고민중...)
+4. SORT_KEY(NOTNULL) -> INT -> 카테고리 순서 정렬 키 값
+5. CREATE_DATE -> TIMESTAMP -> 작성일자
+6. UPDATE_DATE -> TIMESTAMP -> 수정일자
+7. DELETE_DATE -> TIMESTAMP -> 삭제일자
 
 ## 데이터베이스 ERD
