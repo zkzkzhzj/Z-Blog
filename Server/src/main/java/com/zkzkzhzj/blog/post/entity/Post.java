@@ -3,6 +3,8 @@ package com.zkzkzhzj.blog.post.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -29,10 +31,16 @@ import java.util.UUID;
  */
 
 @Entity
+@Getter
 // 인덱스 추가
+// 조회속도를 높이기 위해 하단 3개의 컬럼을 인덱스로 잡았다.
+// 단건 조회의 속도를 높이기 위해 POST_KEY 값
+// 추후에 정렬을 바꿔서 가져올 수 있으므로 SORT_KEY 값
+// 그리고 마지막으로 같은 카테고리별로 묶어서 빠르게 가져오기 위한 CATEGORY_ID 값
 @Table(name = "POST", indexes = {
         @Index(name = "idx_post_key", columnList = "POST_KEY", unique = true),
-        @Index(name = "idx_post_sort", columnList = "SORT_KEY")
+        @Index(name = "idx_post_sort", columnList = "SORT_KEY"),
+        @Index(name = "idx_post_category_id", columnList = "CATEGORY_ID")
 })
 // JPA 는 프록시를 사용한다 -> 가짜 객체를 만들어서 사용
 // 생성자를 관리하기 위해 AccessLevel 을 PUBLIC 으로 열어버리면 연관되지 않은 클래스에서도 객체 생성이 가능해서 불완전한 객체가 만들어질 가능성이 커진다.
@@ -40,9 +48,7 @@ import java.util.UUID;
 // 그렇기 때문에 상속관계에서 접근가능한 PROTECTED 설정을 두어 관리한다
 // 추가적으로 하단에 생성자를 만들어서 @Builder 까지 적용하면 기본 값도 할당할 수 있고 추가적으로 컬럼 값도 편리하게 받을 수 있는 생성자가 완성된다.
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-// 생성, 수정, 삭제 등 감사 정보를 기록하기 위해 리스너 등록
-@EntityListeners(AuditingEntityListener.class)
-public class Post {
+public class Post extends BaseEntity {
 
     @Id
     // Oracle, PostGreSQL 의 경우 시퀀스 오브젝트로 PK 를 증가시킨다. GenerationType.Sequence -> 시퀀스명 연결
@@ -67,31 +73,31 @@ public class Post {
 
     @NotNull
     @Column(name = "VIEW_COUNT", nullable = false)
-    private Integer viewCount = 0;
+    private Integer viewCount;
 
     @NotNull
     @Column(name = "SORT_KEY", nullable = false)
-    private Integer sortKey = 999;
+    private Integer sortKey;
 
     @NotNull
     @Column(name = "IS_HIDDEN", nullable = false)
-    private Boolean isHidden = false;
+    private Boolean isHidden;
 
     // 테이블 연관 관계 정의
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 
-    // 생성일자 자동으로 기록
-    @CreatedDate
-    @Column(name = "CREATE_DATE", updatable = false)
-    private LocalDateTime createDate;
-
-    // 수정일자 자동으로 기록
-    @LastModifiedDate
-    @Column(name = "UPDATE_DATE")
-    private LocalDateTime updateDate;
-
-    @Column(name = "DELETE_DATE")
-    private LocalDateTime deleteDate;
+    // Entity 생성자
+    @Builder
+    public Post(UUID postKey, String title, String fileName, Category category) {
+        this.title = title;
+        this.fileName = fileName;
+        this.category = category;
+        
+        // 기본 값 할당
+        this.viewCount = 0;
+        this.sortKey = 999;
+        this.isHidden = false;
+    }
 }
