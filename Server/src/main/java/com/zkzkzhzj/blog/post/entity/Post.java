@@ -40,7 +40,7 @@ import java.util.UUID;
 @Table(name = "POST", indexes = {
         @Index(name = "idx_post_key", columnList = "POST_KEY", unique = true),
         @Index(name = "idx_post_sort", columnList = "SORT_KEY"),
-        @Index(name = "idx_post_category_id", columnList = "CATEGORY_ID")
+        @Index(name = "idx_post__category_id", columnList = "CATEGORY_ID")
 })
 // JPA 는 프록시를 사용한다 -> 가짜 객체를 만들어서 사용
 // 생성자를 관리하기 위해 AccessLevel 을 PUBLIC 으로 열어버리면 연관되지 않은 클래스에서도 객체 생성이 가능해서 불완전한 객체가 만들어질 가능성이 커진다.

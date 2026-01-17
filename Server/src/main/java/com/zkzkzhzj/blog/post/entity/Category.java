@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @Table(name = "CATEGORY", indexes = {
-        @Index(name = "idx_category_parent_id", columnList = "PARENT_ID")
+        @Index(name = "idx_category__parent_id", columnList = "PARENT_ID")
 })
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Category extends BaseEntity {

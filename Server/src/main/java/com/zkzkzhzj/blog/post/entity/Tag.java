@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
         @Index(name = "idx_tag_name", columnList = "NAME")
 })
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class TAG extends BaseEntity {
+public class Tag extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
