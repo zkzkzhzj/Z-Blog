@@ -30,7 +30,7 @@ public class Tag extends BaseEntity {
     private String name;
 
     @Builder
-    public void Tag(Post post, String name) {
+    public Tag(Post post, String name) {
         this.post = post;
         this.name = name;
     }
