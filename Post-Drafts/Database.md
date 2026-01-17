@@ -50,14 +50,14 @@ application 에 정의하지만 .env 로 불러오는 방법 혹은 더 다양�
 4. TIMESTAMP(4byte) -> YYYY-MM-DD HH:MM:SS
 5. YEAR(1byte) -> YYYY
 
--   DATETIME 과 TIMESTAMP 의 차이
--   TIMESTAMP 는 기본적으로 NOTNULL
--   DATETIME 은 시스템의 TIME_ZONE 이 변경되어도 값이 변화하지 않지만 TIMESTAMP 는 영향을 받는다
--   DATETIME 은 문자형으로 저장, TIMESTAMP 는 숫자형으로 저장
--   DATETIME 범위('1000-01-01' ~ '9999-12-31'), TIMESTAMP 범위('1970-01-01 00:00:01' ~ '2038-01-19 03:14:07')
--   TIMESTAMP 의 경우 1970-01-01 부터 흐른 시간을 저장하는데 이 범위가 4byte 이며 그 한계가 2038-01-19
--   왜 하필 1970-01-01 인가? UNIX 운영체제가 처음 개발되선 시기고 당시에 언제를 0초로 잡을까 고민하다가 나온 기준점
--   TIMESTAMP 를 쓰게되면 필연적으로 맞닥뜨리는 문제인데 어떻게 해결해야할지 추후에 찾아보자
+- DATETIME 과 TIMESTAMP 의 차이
+- TIMESTAMP 는 기본적으로 NOTNULL
+- DATETIME 은 시스템의 TIME_ZONE 이 변경되어도 값이 변화하지 않지만 TIMESTAMP 는 영향을 받는다
+- DATETIME 은 문자형으로 저장, TIMESTAMP 는 숫자형으로 저장
+- DATETIME 범위('1000-01-01' ~ '9999-12-31'), TIMESTAMP 범위('1970-01-01 00:00:01' ~ '2038-01-19 03:14:07')
+- TIMESTAMP 의 경우 1970-01-01 부터 흐른 시간을 저장하는데 이 범위가 4byte 이며 그 한계가 2038-01-19
+- 왜 하필 1970-01-01 인가? UNIX 운영체제가 처음 개발되선 시기고 당시에 언제를 0초로 잡을까 고민하다가 나온 기준점
+- TIMESTAMP 를 쓰게되면 필연적으로 맞닥뜨리는 문제인데 어떻게 해결해야할지 추후에 찾아보자
 
 ---
 
@@ -98,17 +98,12 @@ COMMENT_CLOSER TABLE
 
 TAG TABLE
 
-1. ID(PK) -> BIGINT -> 태그 ID
-2. NAME(UNIQUE) -> VARCHAR(255) -> 태그 이름
-3. CREATE_DATE -> TIMESTAMP -> 작성일자
-4. UPDATE_DATE -> TIMESTAMP -> 수정일자
-5. DELETE_DATE -> TIMESTAMP -> 삭제일자
-
-POST_TAG TABLE
-
-1. ID(PK) -> BIGINT -> POST_ID + TAG_ID 복합 키
+1. ID(PK) -> BIGINT -> 태그 PK
 2. POST_ID(FK) -> BIGINT -> 포스트 ID
-3. TAG_IG(FK) -> BIGINT -> 태그 ID
+3. NAME -> VARCHAR(255) -> 태그 이름
+4. CREATE_DATE -> TIMESTAMP -> 작성일자
+5. UPDATE_DATE -> TIMESTAMP -> 수정일자
+6. DELETE_DATE -> TIMESTAMP -> 삭제일자
 
 CATEGORY TABLE -> Closer Table 삭제(너무 과하다고 판단)
 
