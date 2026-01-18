@@ -1,8 +1,8 @@
 # 브랜치명 : [라벨명]/#[이슈번호]
-branchName: '${category}/#${issue.number}'
+branchName: '/issue-${issue.number}'
 
-# 라벨 매핑
-categories:
+# branches 설정 사용(라벨 Prefix)
+branches:
   - label: 'feat'
     name: 'feat'
   - label: 'fix'
