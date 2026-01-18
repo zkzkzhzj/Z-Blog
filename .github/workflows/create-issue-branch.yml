@@ -1,5 +1,5 @@
 name: Create Issue Branch
-
+# github action 을 사용하여 issue 담당자가 지정되면 브랜치 자동 생성
 on:
   issues:
     types: [ assigned ] # 이슈에 담당자가 지정될 때 실행
@@ -13,6 +13,6 @@ jobs:
       pull-requests: write
     steps:
       - name: Create Issue Branch
-        uses: robvanderleek/create-issue-branch@main
+        uses: robvanderleek/create-issue-branch@v1.9.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
