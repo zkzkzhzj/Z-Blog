@@ -1,0 +1,25 @@
+# 브랜치명 : [라벨명]/#[이슈번호]
+branchName: '${category}/#${issue.number}'
+
+# 라벨 매핑
+categories:
+  - label: 'feat'
+    name: 'feat'
+  - label: 'fix'
+    name: 'fix'
+  - label: 'docs'
+    name: 'docs'
+  - label: 'style'
+    name: 'style'
+  - label: 'refactor'
+    name: 'refactor'
+  - label: 'chore'
+    name: 'chore'
+  - label: 'test'
+    name: 'test'
+  - label: 'perf'
+    name: 'perf'
+  - label: 'ci'
+    name: 'ci'
+  - label: '*'
+    name: 'issue'
