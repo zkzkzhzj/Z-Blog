@@ -1,0 +1,18 @@
+name: Create Issue Branch
+# github action 을 사용하여 issue 담당자가 지정되면 브랜치 자동 생성
+on:
+  issues:
+    types: [ assigned ] # 이슈에 담당자가 지정될 때 실행
+
+jobs:
+  create_issue_branch_job:
+    runs-on: ubuntu-latest # 사용할 OS 설정
+    permissions: # 브랜치 생성을 위해 쓰기 권한 명시
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Create Issue Branch
+        uses: robvanderleek/create-issue-branch@v1.9.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

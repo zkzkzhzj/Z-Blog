@@ -1,0 +1,25 @@
+# 브랜치명 : [라벨명]/#[이슈번호]
+branchName: '/issue-${issue.number}'
+
+# branches 설정 사용(라벨 Prefix)
+branches:
+  - label: 'feat'
+    prefix: 'feat'
+  - label: 'fix'
+    prefix: 'fix'
+  - label: 'docs'
+    prefix: 'docs'
+  - label: 'style'
+    prefix: 'style'
+  - label: 'refactor'
+    prefix: 'refactor'
+  - label: 'chore'
+    prefix: 'chore'
+  - label: 'test'
+    prefix: 'test'
+  - label: 'perf'
+    prefix: 'perf'
+  - label: 'ci'
+    prefix: 'ci'
+  - label: '*'
+    prefix: 'issue'
