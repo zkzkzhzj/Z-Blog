@@ -1,5 +1,5 @@
 ---
-name: we-ple issue template
+name: issue template
 about: 작업 이력 관리를 위한 이슈 템플릿
 title: ''
 labels: ''
