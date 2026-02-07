@@ -26,6 +26,8 @@ bin/
 **/application-local.properties
 **/application-dev.yml
 **/application-dev.properties
+**/application-proc.yml
+**/application-proc.properties
 
 # OS 및 시스템 로그
 [Dd]esktop.ini
