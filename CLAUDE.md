@@ -82,7 +82,7 @@ Spring Boot + React 기반 블로그 개발 + 기술 블로그 글 + AI 협업 �
 
 ## 기록 규칙
 - 사용한 프롬프트는 Claude Code가 prompts/claude/ 하위에 일자별로 저장, 같은 일자면 수정하여 추가
-- 세션 종료 시 Claude Code가 sessions/claude/ 에 저장
+- 세션 종료 시 Claude Code가 sessions/ 에 저장
 - learnings/claude/ 에는 코드 리뷰에서 발견한 판단 내용을 저장
   - 탈락/통과 여부와 근거
   - 제안한 설계 방향 및 리팩토링 포인트
@@ -92,7 +92,7 @@ Spring Boot + React 기반 블로그 개발 + 기술 블로그 글 + AI 협업 �
 ## 종료 명령
 사용자가 `/종료` 입력 시 Claude Code가 순서대로 수행:
 1. prompts/claude/ 에 오늘 세션 프롬프트 저장 (없으면 생성, 있으면 추가)
-2. sessions/claude/ 에 세션 요약 저장
+2. sessions/ 에 세션 요약 저장
 
 ## 코드 리뷰 명령
 사용자가 `/코드리뷰` 입력 시 Claude Code가 수행:
