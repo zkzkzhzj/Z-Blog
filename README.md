@@ -23,14 +23,21 @@
 - `ci:` CI 설정 파일 및 스크립트 수정
 
 ## 📂 Project Structure
-- `Post-Drafts`: 개발하며 저장하는 임시 정리공간
+- `Post-Drafts/`: 개발하며 저장하는 임시 정리공간
 - `Post/`: 블로그를 만들며 알게되는 지식 정리공간
 - `Server/`: Spring Boot 프로젝트
 - `Web/`: React 프로젝트
 - `Workflow-Week/`: 주간 목표 설정 및 회고 정리공간
+- `AI-Develop/`: AI 협업 기록 및 학습 정리
+  - `prompts/`: 잘 된 프롬프트 저장
+  - `sessions/`: 세션 대화 요약
+  - `learnings/`: 개념 정리
+- `CLAUDE.md`: Claude Code 역할 및 프로젝트 지침
+- `AGENTS.md`: Codex 역할 및 코드 규칙
 
 ## 🚀 **배포 목표:** 
  - 현재 로컬 환경에서 개발 중이며, 안정화 이후 AWS(EC2/RDS) 환경으로 이전 배포할 예정입니다.
 
 ## 💬목표
-처음으로 시작부터 끝까지 완주하는 프로젝트가 되자
+- 처음으로 시작부터 끝까지 완주하는 프로젝트가 되자
+- AI와의 협업 방식을 체계화하고, MD 파일(CLAUDE.md, AGENTS.md)을 지속적으로 개선하자
