@@ -59,6 +59,13 @@ Spring Boot + React 기반 블로그 개발 + 기술 블로그 글 + AI 협업 �
 - ci: CI 설정 파일 및 스크립트 수정
 
 ## 기록 규칙
-- [ ] 새로운 개념을 사용하면 Claude Code가 learnings/ 에 저장
-- [ ] 사용한 프롬프트는 Claude Code가 prompts/ 하위에 일자별로 저장, 같은 일자면 수정하여 추가
-- [ ] 세션 종료 시 Claude Code가 sessions/ 에 저장
+- 새로운 개념을 사용하면 Claude Code가 learnings/ 에 저장
+- 사용한 프롬프트는 Claude Code가 prompts/ 하위에 일자별로 저장, 같은 일자면 수정하여 추가
+- 세션 종료 시 Claude Code가 sessions/ 에 저장
+
+## 종료 명령
+사용자가 `/종료` 입력 시 Claude Code가 순서대로 수행:
+1. prompts/ 에 오늘 세션 프롬프트 저장 (없으면 생성, 있으면 추가)
+2. sessions/ 에 세션 요약 저장
+3. 변경사항 있을 경우 커밋
+4. git push
