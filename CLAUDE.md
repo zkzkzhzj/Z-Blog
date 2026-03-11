@@ -47,10 +47,12 @@ Spring Boot + React 기반 블로그 개발 + 기술 블로그 글 + AI 협업 �
 - 직접 기능 구현은 하지 않는다
 
 ## AI 협업 워크플로우
-1. Codex → 기능 구현, 테스트 코드 작성
-2. 본인 → 코드 읽고 판단
-3. Claude Code → 설계 관점 리뷰(공격적으로 리뷰)
-4. Claude Code → 최종 판단 후 PR
+1. 본인 → GitHub 이슈 등록
+2. Codex → gh로 이슈 읽기 → Specs 파일 생성 → feature/이슈번호-작업명 브랜치에서 구현 + 테스트
+3. 본인 → 코드 읽고 판단
+4. Claude Code → /코드리뷰 (탈락 시 수정 → 재요청 루프)
+5. Claude Code → 통과 시 커밋 + PR (feature → main)
+6. 본인 → GitHub에서 확인 후 main merge
 
 ## 코드 리뷰 & 커밋 규칙
 ### 리뷰 기준 (하나라도 해당하면 탈락)
@@ -94,7 +96,7 @@ Spring Boot + React 기반 블로그 개발 + 기술 블로그 글 + AI 협업 �
 
 ## 코드 리뷰 명령
 사용자가 `/코드리뷰` 입력 시 Claude Code가 수행:
-1. 현재 변경된 코드 파일 전체 확인 (git diff 기준)
+1. 현재 변경된 코드 파일 전체 확인 (git diff 기준, 신규 파일 포함)
 2. 코드 리뷰 & 커밋 규칙 기준으로 리뷰 수행
-3. **탈락** 시 → 커밋 중단, 항목별 피드백 제공
-4. **통과** 시 → learnings/claude/ 에 리뷰 결과 저장 후 커밋 + git push
+3. **탈락** 시 → 커밋 중단, 항목별 피드백 제공 (재검토는 사용자가 /코드리뷰 재요청)
+4. **통과** 시 → learnings/claude/ 에 리뷰 결과 저장 → 커밋 → PR (feature → main) → push

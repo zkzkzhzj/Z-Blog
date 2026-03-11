@@ -30,20 +30,26 @@
 * 코드 작성 후 본인이 검토 → Claude Code 리뷰 → 커밋
 * Claude Code가 탈락 판정 시 커밋 없음 — 피드백 수령 후 수정하여 재시도
 
+## 브랜치 명명 규칙
+
+* `feature/이슈번호-작업명` 형식 사용
+* 예: `feature/12-post-api`, `feature/7-comment-domain`
+
 ## 세션 시작 절차 (반드시 수행)
 
 1. 원격 최신 동기화
    * `git fetch --all --prune`
-2. 작업 브랜치 확인/체크아웃
-   * 작업 브랜치는 세션 시작 시 사용자가 지정한다 — 지정 없으면 확인 후 진행
-   * 명령: `git checkout <지정된 브랜치>`
-   * 로컬 브랜치가 없으면: `git checkout -b <지정된 브랜치> --track origin/<지정된 브랜치>`
-3. 브랜치 최신화
-   * `git pull --ff-only origin <지정된 브랜치>`
-4. 작업 사양 문서 로드
-   * 1순위: `Specs/<지정된 브랜치>.md`
-   * 2순위: `Specs/map.md`에 브랜치 매핑이 있으면 해당 파일
-   * 3순위: `Specs/default.md`
+2. 이슈 읽기 및 Specs 파일 생성
+   * 사용자에게 이슈 번호를 받는다
+   * `gh issue view <이슈번호>` 로 이슈 내용 확인
+   * `Specs/feature-<이슈번호>-<작업명>.md` 파일 생성 (default.md 템플릿 기반)
+   * Specs 파일 내용을 사용자에게 보고 후 확인받는다
+3. 작업 브랜치 생성/체크아웃
+   * 브랜치명: `feature/<이슈번호>-<작업명>`
+   * 명령: `git checkout -b feature/<이슈번호>-<작업명> --track origin/main` (신규)
+   * 이미 있으면: `git checkout feature/<이슈번호>-<작업명>`
+4. 브랜치 최신화
+   * `git pull --ff-only origin feature/<이슈번호>-<작업명>` (기존 브랜치인 경우)
 5. 사양 확인 보고 후 구현 시작
    * 체크아웃한 브랜치명
    * 읽은 사양 파일 경로
