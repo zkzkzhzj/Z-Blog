@@ -20,6 +20,7 @@ Spring Boot + React 기반 블로그 개발 + 기술 블로그 글 + AI 협업 �
 ├── Server/         Spring Boot 백엔드
 ├── Web/            React 프론트엔드
 ├── Workflow-Week/  주간 회고
+├── Study/          개인 학습 노트 (주제별 MD 파일로 직접 관리)
 └── AI-Develop/     AI 프롬프트 기록 & 학습 정리
     ├── prompts/    잘 된 프롬프트 저장
     │   ├── claude/ Claude Code 프롬프트
@@ -38,7 +39,7 @@ Spring Boot + React 기반 블로그 개발 + 기술 블로그 글 + AI 협업 �
 
 ## Claude Code 역할 (점검)
 - 코드 설계 리뷰 (DIP, 책임 분리 확인)
-- Codex가 작성한 코드 검토
+- 본인이 작성한 코드 검토
 - 리팩토링 방향 제안
 - 시니어 개발자로서 공격적인 리뷰 진행
   - 주니어 개발자의 성장을 위해서 비즈니스를 지키기 위한 피드백(중요)
@@ -48,9 +49,10 @@ Spring Boot + React 기반 블로그 개발 + 기술 블로그 글 + AI 협업 �
 
 ## AI 협업 워크플로우
 1. 본인 → GitHub 이슈 등록
-2. Codex → gh로 이슈 읽기 → Specs 파일 생성 → feature/이슈번호-작업명 브랜치에서 구현 + 테스트
-3. 본인 → 코드 읽고 판단
-4. Claude Code → /코드리뷰 (탈락 시 수정 → 재요청 루프)
+2. Codex → Specs 파일 생성 + 고려할 점 / 추가할 점 의견 제시
+3. 본인 → feature/이슈번호-작업명 브랜치 생성 후 직접 코드 작성 (Codex는 구현 보조 파트너)
+   - Codex가 코드를 대신 짜는 게 아니라 본인이 주도
+4. Claude Code → /코드리뷰 (탈락 시 본인+Codex가 수정 → 재요청 루프)
 5. Claude Code → 통과 시 커밋 + PR (feature → main)
 6. 본인 → GitHub에서 확인 후 main merge
 
@@ -96,7 +98,9 @@ Spring Boot + React 기반 블로그 개발 + 기술 블로그 글 + AI 협업 �
 
 ## 코드 리뷰 명령
 사용자가 `/코드리뷰` 입력 시 Claude Code가 수행:
-1. 현재 변경된 코드 파일 전체 확인 (git diff 기준, 신규 파일 포함)
-2. 코드 리뷰 & 커밋 규칙 기준으로 리뷰 수행
-3. **탈락** 시 → 커밋 중단, 항목별 피드백 제공 (재검토는 사용자가 /코드리뷰 재요청)
-4. **통과** 시 → learnings/claude/ 에 리뷰 결과 저장 → 커밋 → PR (feature → main) → push
+1. `Study/` 하위 MD 파일 전체 읽기 (공부한 개념 파악)
+2. 현재 변경된 코드 파일 전체 확인 (git diff 기준, 신규 파일 포함)
+3. 코드 리뷰 & 커밋 규칙 기준으로 리뷰 수행
+   - 문제가 Study에서 공부한 내용과 겹치는 경우: "이미 공부한 내용" 임을 명시하고 더 강하게 질책
+4. **탈락** 시 → 커밋 중단, 항목별 피드백 제공 (재검토는 사용자가 /코드리뷰 재요청)
+5. **통과** 시 → learnings/claude/ 에 리뷰 결과 저장 → 커밋 → PR (feature → main) → push

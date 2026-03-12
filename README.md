@@ -28,6 +28,7 @@
 - `Server/`: Spring Boot 프로젝트
 - `Web/`: React 프로젝트
 - `Workflow-Week/`: 주간 목표 설정 및 회고 정리공간
+- `Study/`: 개인 학습 노트 (주제별 MD 파일로 직접 관리)
 - `AI-Develop/`: AI 협업 기록 및 학습 정리
   - `prompts/`: 잘 된 프롬프트 저장
   - `sessions/`: 세션 대화 요약
