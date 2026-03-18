@@ -96,6 +96,13 @@ Spring Boot + React 기반 블로그 개발 + 기술 블로그 글 + AI 협업 �
 1. prompts/claude/ 에 오늘 세션 프롬프트 저장 (없으면 생성, 있으면 추가)
 2. sessions/ 에 세션 요약 저장
 
+## Study 명령
+사용자가 `/Study` 입력 시 Claude Code가 순서대로 수행:
+1. `Study/` 하위 변경된 MD 파일 확인 (git diff 기준, 신규 파일 포함)
+2. `Study/` 외 파일이 함께 변경된 경우 → 중단, 사용자에게 알림 (Study 파일만 커밋 가능)
+3. `study/issue-5` 브랜치로 체크아웃 (없으면 생성)
+4. 변경된 Study/ 파일만 스테이징 → 커밋 → `study/issue-5` 브랜치로 push
+
 ## 코드 리뷰 명령
 사용자가 `/코드리뷰` 입력 시 Claude Code가 수행:
 1. `Study/` 하위 MD 파일 전체 읽기 (공부한 개념 파악)
